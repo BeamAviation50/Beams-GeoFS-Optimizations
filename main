@@ -1,0 +1,95 @@
+// ==UserScript==
+// @name         GeoFS Resolution Button Panel
+// @namespace    http://tampermonkey.net/
+// @version      1.1
+// @description  Adds floating resolution selector (144p–8K) to GeoFS, overriding the slider system safely.
+// @author       Intel
+// @match        https://www.geo-fs.com/geofs.php?v=*
+// @grant        none
+// @run-at       document-idle
+// ==/UserScript==
+
+(function () {
+    "use strict";
+
+    const resolutions = {
+        "144p": 144,
+        "240p": 240,
+        "360p": 360,
+        "480p": 480,
+        "720p": 720,
+        "1080p": 1080,
+        "1440p (2K)": 1440,
+        "2160p (4K)": 2160,
+        "4320p (8K)": 4320
+    };
+
+    const aspectRatio = 16 / 9;
+
+    function setCanvasResolution(height) {
+        const width = Math.round(height * aspectRatio);
+        const canvas = document.querySelector("canvas");
+
+        if (!canvas) {
+            console.warn("GeoFS Canvas not found.");
+            alert("Canvas not found. Make sure the sim is fully loaded.");
+            return;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+
+        if (geofs?.api?.viewer?.scene) {
+            geofs.api.viewer.scene.resolutionScale = 1.0;
+            geofs.api.viewer.scene.requestRender();
+        }
+
+        console.log(`[GeoFS] Canvas set to ${width}x${height}`);
+    }
+
+    function createFloatingMenu() {
+        if (document.getElementById("geofs-res-menu")) return;
+
+        const menu = document.createElement("div");
+        menu.id = "geofs-res-menu";
+        menu.style.position = "fixed";
+        menu.style.top = "80px";
+        menu.style.left = "10px";
+        menu.style.background = "rgba(0,0,0,0.8)";
+        menu.style.color = "white";
+        menu.style.padding = "10px";
+        menu.style.borderRadius = "8px";
+        menu.style.zIndex = "9999";
+        menu.style.fontSize = "13px";
+        menu.style.fontFamily = "Arial";
+
+        menu.innerHTML = `<strong>GeoFS Resolution</strong><br><br>`;
+
+        for (const [label, height] of Object.entries(resolutions)) {
+            const btn = document.createElement("button");
+            btn.textContent = label;
+            btn.style.margin = "2px";
+            btn.style.padding = "3px 6px";
+            btn.style.border = "1px solid white";
+            btn.style.background = "#222";
+            btn.style.color = "white";
+            btn.style.cursor = "pointer";
+            btn.style.borderRadius = "4px";
+            btn.onclick = () => setCanvasResolution(height);
+            menu.appendChild(btn);
+        }
+
+        document.body.appendChild(menu);
+    }
+
+    // Wait until GeoFS and DOM are both fully ready
+    function waitForGeoFS() {
+        if (typeof geofs !== "undefined" && document.querySelector("canvas")) {
+            createFloatingMenu();
+        } else {
+            requestAnimationFrame(waitForGeoFS);
+        }
+    }
+
+    waitForGeoFS();
+})();
