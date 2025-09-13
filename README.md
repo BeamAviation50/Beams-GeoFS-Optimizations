@@ -1,38 +1,14 @@
-WELCOME TO GEOFS ADVANCED RESOLTUIONS!
+Welcome to GeoFS Advanced Resolutions and more! Here you can play geofs in any resolution above 1080p! Have a 4k Monitor? GeoFS in 4K! Talk about that!
+Also, It has been a while since I last updated this, so expect an update in a week or so. 
 
-RECCOMENDED SETTINGS FOR GPU:
+How to use:
+1. Download the js script
+2. Open in Notepad
+3. Copy the script
+4. insert it into geofs by pressing f12 then going to console
+5. Adjust the resolution as needed
 
-INTEGRATED GRAPHICS CARD: DEPENDS ON HOW GOOD, IF INTEL HD 515 OR WORSE USE 480P LEVEL 6 SETTINGS
+Please do not use a resolution higher than your monitors support as it will just be a waste of FPS. If your graphics card is meant for 1440p and you have a 1440p monitor, use 2K listed in the release.
+Also, this affects VRAM too. It has been tested and I can tell you it does use VRAM like any other Triple-A game or flight simulator.
 
-GPU WITH 1 AND 2 GB VRAM: 720P LEVEL 6 SETTINGS
-
-GPU WITH 4 GB VRAM: 1080P LEVEL 6 SETTINGS, 2K IS OPTIMAL, 4K NOT RECCOMENDED OR ABOVE
-
-GPU WITH 6 GB VRAM: 2K LEVEL 6 SETTINGS, 4K IS OPTIMAL, 8K NOT RECCOMENDED
-
-GPU WITH 8 GB VRAM: 4K LEVEL 6 SETTINGS, 8K NOT RECCOMENDED
-
-GPU WITH 12 GB VRAM OR ABOVE: 8K LEVEL 6 SETTINGS
-
-FOR RAM:
-
-4 GB - 480P
-
-8 GB - 720p, 1080p may push it a bit
-
-16GB - up to 1440p, 4K + 8K not reccomended
-
-32 GB - up to 8K
-
-64 GB+ - up to 8K
-
-
-THANKS FOR USING!
-
-CREDITS TO CHATGPT FOR SOME MINOR CODING (4.0)
-
-IF YOU SEE THIS CODE REPOSTED, REPORT IT AND GET IT TAKEN DOWN.
-
-ENJOY!
-
-- BEAM
+Enjoy!
