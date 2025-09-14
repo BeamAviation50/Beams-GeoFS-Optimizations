@@ -1,5 +1,10 @@
-Welcome to GeoFS Advanced Resolutions and more! Here you can play geofs in any resolution above 1080p! Have a 4k Monitor? GeoFS in 4K!
-Also, It has been a while since I last updated this, so expect an update in a week or so (cough cough upscaling)
+Welcome to Beams GeoFS Optimizations! So Far this includes:
+
+- Resolution Adjustment (144p-16K)
+- Upscaling (WIP)
+- Mesh Quality Changes (Soon to come)
+
+And way more!
 
 How to use:
 1. Download the js script
